@@ -36,3 +36,4 @@ C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\obj\Deb
 C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\obj\Debug\net6.0\ref\ETicaretAPI.API.dll
 C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\bin\Debug\net6.0\ETicaretAPI.Persistence.dll
 C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\bin\Debug\net6.0\ETicaretAPI.Persistence.pdb
+C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\obj\Debug\net6.0\ETicaretAPI.API.sourcelink.json

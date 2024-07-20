@@ -1,6 +1,4 @@
-﻿using ETicaretAPI.Application.Abstractions;
-using ETicaretAPI.Persistence.Concretes;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +12,7 @@ namespace ETicaretAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             // Yeni bizden IProductService telebi gelse ProductServiceni gonder
-            services.AddSingleton<IProductService, ProductService>();
+
         }
     }
 }

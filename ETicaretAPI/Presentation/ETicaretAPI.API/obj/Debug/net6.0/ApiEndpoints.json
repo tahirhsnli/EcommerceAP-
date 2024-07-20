@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "ETicaretAPI.API.Controllers.ProductsController",
-    "Method": "GetProducts",
+    "Method": "Get",
     "RelativePath": "api/Products",
     "HttpMethod": "GET",
     "IsController": true,
