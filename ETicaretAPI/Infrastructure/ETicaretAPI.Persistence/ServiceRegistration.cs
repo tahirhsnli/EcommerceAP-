@@ -15,7 +15,7 @@ namespace ETicaretAPI.Persistence
         {
             // Yeni bizden IProductService telebi gelse ProductServiceni gonder
             // Kodun icerisine komfigurasyon deyerleri yazmaq duzgun deyil
-            services.AddDbContext<ETicaretDbContext>(options => options.UseNpgsql("User ID=postgres;Password=runle303;Host=localhost;Port=5432;Database=ETicaretAPIDb;"));
+            services.AddDbContext<ETicaretDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
 
         }
     }

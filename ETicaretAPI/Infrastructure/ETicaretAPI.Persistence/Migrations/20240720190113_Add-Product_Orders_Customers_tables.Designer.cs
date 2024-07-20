@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ETicaretAPI.Persistence.Migrations
 {
     [DbContext(typeof(ETicaretDbContext))]
-    [Migration("20240720181326_Product_Order_Customer_tables")]
-    partial class Product_Order_Customer_tables
+    [Migration("20240720190113_Add-Product_Orders_Customers_tables")]
+    partial class AddProduct_Orders_Customers_tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
