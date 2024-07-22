@@ -1,4 +1,6 @@
-﻿using ETicaretAPI.Persistence.Contexts;
+﻿using ETicaretAPI.Application.Repositories;
+using ETicaretAPI.Persistence.Contexts;
+using ETicaretAPI.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,8 +17,13 @@ namespace ETicaretAPI.Persistence
         {
             // Yeni bizden IProductService telebi gelse ProductServiceni gonder
             // Kodun icerisine komfigurasyon deyerleri yazmaq duzgun deyil
-            services.AddDbContext<ETicaretDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
-
+            services.AddDbContext<ETicaretDbContext>(options => options.UseNpgsql(Configuration.ConnectionString),ServiceLifetime.Singleton);
+            services.AddSingleton<ICustomerReadRepository, CustomerReadRepository>();
+            services.AddSingleton<ICustomerWriteRepository, CustomerWriteRepository>();
+            services.AddSingleton<IOrderReadRepository, OrderReadRepository>();
+            services.AddSingleton<IOrderWriteRepository, OrderWriteRepository>();
+            services.AddSingleton<IProductReadRepository, ProductReadRepository>();
+            services.AddSingleton<IProductWriteRepository, ProductWriteRepository>();
         }
     }
 }

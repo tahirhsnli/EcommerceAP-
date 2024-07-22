@@ -47,3 +47,4 @@ C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\bin\Deb
 C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Npgsql.dll
 C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Tahir\Desktop\ETicaret\ETicaretAPI\Presentation\ETicaretAPI.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
