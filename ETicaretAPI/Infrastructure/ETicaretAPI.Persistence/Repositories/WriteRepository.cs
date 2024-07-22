@@ -2,6 +2,7 @@
 using ETicaretAPI.Domain.Entities.Common;
 using ETicaretAPI.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,29 +21,46 @@ namespace ETicaretAPI.Persistence.Repositories
 
         public DbSet<T> Table => _context.Set<T>();
 
-        public Task<bool> AddAsync(T entity)
+        public async Task<bool> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            EntityEntry<T> entry = await Table.AddAsync(entity);
+            return entry.State == EntityState.Added;
         }
 
-        public Task<bool> AddAsync(List<T> entities)
+        public async Task<bool> AddRangeAsync(List<T> entities)
         {
-            throw new NotImplementedException();
+            await Table.AddRangeAsync(entities);
+            return true;
+        }
+        public bool Remove(T entity)
+        {
+            EntityEntry<T> entry = Table.Remove(entity);
+            return entry.State == EntityState.Deleted;
         }
 
-        public Task<T> RemoveAsync(T entity)
+        public bool RemoveRange(List<T> entities)
         {
-            throw new NotImplementedException();
+            Table.RemoveRange(entities);
+            return true;
+        }
+        public async Task<bool> RemoveAsync(string Id)
+        {
+            T model = await Table.FirstOrDefaultAsync(p=>p.Id == Guid.Parse(Id));
+            return Remove(model);
+
         }
 
-        public Task<T> RemoveAsync(string Id)
+        public bool Update(T entity)
         {
-            throw new NotImplementedException();
+            EntityEntry entityEntry = Table.Update(entity);
+            return entityEntry.State == EntityState.Modified;
         }
 
-        public Task<T> UpdateAsync(T entity)
+        public async Task<int> SaveAsync()
         {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync();
         }
+
+
     }
 }
