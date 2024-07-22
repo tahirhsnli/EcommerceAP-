@@ -27,6 +27,11 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "tracking",
+        "Type": "System.Boolean",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
