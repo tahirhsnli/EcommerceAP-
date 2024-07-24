@@ -13,12 +13,17 @@ namespace ETicaretAPI.API.Controllers
         private readonly IProductWriteRepository _writeRepository;
 
         private readonly IOrderWriteRepository _orderWriteRepository;
+        private readonly IOrderReadRepository _orderReadRepository;
 
-        public ProductsController(IProductReadRepository readRepository,IProductWriteRepository writeRepository,IOrderWriteRepository orderWriteRepository)
+        private readonly ICustomerWriteRepository _customerWriteRepository;
+
+        public ProductsController(IProductReadRepository readRepository,IProductWriteRepository writeRepository,IOrderWriteRepository orderWriteRepository,ICustomerWriteRepository customerWriteRepository,IOrderReadRepository orderReadRepository)
         {
             _readRepository = readRepository;
             _writeRepository = writeRepository;
             _orderWriteRepository = orderWriteRepository;
+            _customerWriteRepository = customerWriteRepository;
+            _orderReadRepository = orderReadRepository;
         }
         [HttpGet]
         public async Task GetAsync()
@@ -35,7 +40,13 @@ namespace ETicaretAPI.API.Controllers
             //product.Price = 1221;
             //await _writeRepository.SaveAsync();
 
-            await _orderWriteRepository.AddAsync(new() { Description = "Bomba kimi", Address = "Qaradag" });
+            //Guid customerId = Guid.NewGuid();
+            //await _customerWriteRepository.AddAsync(new() { Id = customerId, Name = "Frank" });
+            //await _orderWriteRepository.AddAsync(new() { Description = "Bomba kimi", Address = "Qaradag",CustomerId = customerId });
+            //await _orderWriteRepository.SaveAsync();
+
+            Order order = await _orderReadRepository.GetByIdAsync("5b1c9158-1ac9-4f81-a927-da85581e7bf3");
+            order.Address = "Qaradag Lokbatan";
             await _orderWriteRepository.SaveAsync();
         }
 
