@@ -11,10 +11,14 @@ namespace ETicaretAPI.API.Controllers
     {
         private readonly IProductReadRepository _readRepository;
         private readonly IProductWriteRepository _writeRepository;
-        public ProductsController(IProductReadRepository readRepository,IProductWriteRepository writeRepository)
+
+        private readonly IOrderWriteRepository _orderWriteRepository;
+
+        public ProductsController(IProductReadRepository readRepository,IProductWriteRepository writeRepository,IOrderWriteRepository orderWriteRepository)
         {
             _readRepository = readRepository;
             _writeRepository = writeRepository;
+            _orderWriteRepository = orderWriteRepository;
         }
         [HttpGet]
         public async Task GetAsync()
@@ -27,9 +31,12 @@ namespace ETicaretAPI.API.Controllers
             //});
             //await _writeRepository.SaveAsync();
 
-            Product product = await _readRepository.GetByIdAsync("43565798-4638-494e-8f58-02faede51aa4");
-            product.Price = 1221;
-            await _writeRepository.SaveAsync();
+            //Product product = await _readRepository.GetByIdAsync("43565798-4638-494e-8f58-02faede51aa4");
+            //product.Price = 1221;
+            //await _writeRepository.SaveAsync();
+
+            await _orderWriteRepository.AddAsync(new() { Description = "Bomba kimi", Address = "Qaradag" });
+            await _orderWriteRepository.SaveAsync();
         }
 
         [HttpGet("{id}")]
