@@ -13,9 +13,7 @@ import path from 'path';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {
-        path:"" , component:CustomerComponent
-      }
+      { path:"" , component:CustomerComponent }
     ])
   ]
 })
