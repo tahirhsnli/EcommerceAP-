@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-import { LayoutComponent } from './layout/layout.component';
 import { LayoutModule } from './layout/layout.module';
 import { ComponetsModule } from './componets/componets.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 
@@ -19,7 +17,8 @@ import { ComponetsModule } from './componets/componets.module';
     CommonModule,
    
     LayoutModule,
-    ComponetsModule
+    ComponetsModule,
+  
    
   ],
   exports: [
