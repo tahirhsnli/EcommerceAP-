@@ -1,9 +1,13 @@
-.example-container {
-    width: auto;
-    height: 200px;
+.admin-container {
+    width: 99%;
+    height: 87%;
     margin: 10px;
     border: 1px solid #555;
     /* The background property is added to clearly distinguish the borders between drawer and main
        content */
     background: #eee;
   }
+
+.admin-left {
+   width: 160px;
+}
