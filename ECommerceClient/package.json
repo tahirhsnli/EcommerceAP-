@@ -23,6 +23,7 @@
     "@angular/platform-server": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@angular/ssr": "^17.3.6",
+    "alertifyjs": "^1.14.0",
     "bootstrap": "^5.3.3",
     "express": "^4.18.2",
     "jquery": "^3.7.1",

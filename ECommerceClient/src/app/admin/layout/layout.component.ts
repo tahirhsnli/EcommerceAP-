@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
+  constructor(){}
+  ngOnInit(): void {
+    
+  }
 
 }
