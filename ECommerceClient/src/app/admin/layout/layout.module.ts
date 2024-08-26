@@ -13,7 +13,7 @@ import { ComponentsModule } from './components/components.module';
     CommonModule,
     ComponentsModule,
     RouterModule,
-    MatSidenavModule,
+    MatSidenavModule
   ],
   exports:[
     LayoutComponent
