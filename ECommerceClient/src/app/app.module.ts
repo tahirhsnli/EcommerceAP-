@@ -8,6 +8,7 @@ import { UiModule } from './ui/ui.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { AdminModule } from './admin/admin.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-
+    ToastrModule.forRoot(),
     AdminModule,UiModule
   ],
   providers: [

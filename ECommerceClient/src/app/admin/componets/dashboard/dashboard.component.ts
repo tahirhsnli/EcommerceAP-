@@ -17,7 +17,13 @@ export class DashboardComponent implements OnInit {
   }
 
   message(){
-    this.aleritfy.message("Hi",MessageType.Success,Position.BottomRight,5,true)
+    this.aleritfy.message({
+      message:"Hi",
+      messageType:MessageType.Success,
+      delay : 5,
+      position:Position.BottomLeft,
+      dismissOthers:false
+    });
   }
 
   dismiss(){
