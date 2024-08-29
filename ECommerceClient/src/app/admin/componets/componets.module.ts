@@ -5,6 +5,7 @@ import { OrdersModule } from './orders/orders.module';
 import { CustomerModule } from './customers/customer.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from '../../app-routing.module';
+import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 
 
 
