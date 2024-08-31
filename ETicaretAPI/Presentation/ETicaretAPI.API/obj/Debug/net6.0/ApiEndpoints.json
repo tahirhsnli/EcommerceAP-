@@ -7,33 +7,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ETicaretAPI.API.Controllers.ProductsController",
-    "Method": "FindByIdAsync",
-    "RelativePath": "api/Products/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "tracking",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      }
-    ],
     "ReturnTypes": []
   }
 ]

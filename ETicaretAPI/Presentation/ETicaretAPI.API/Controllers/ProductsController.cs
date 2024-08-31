@@ -26,7 +26,7 @@ namespace ETicaretAPI.API.Controllers
             _orderReadRepository = orderReadRepository;
         }
         [HttpGet]
-        public async Task GetAsync()
+        public async Task<IActionResult> GetAsync()
         {
             //await _writeRepository.AddRangeAsync(new()
             //{
@@ -45,16 +45,18 @@ namespace ETicaretAPI.API.Controllers
             //await _orderWriteRepository.AddAsync(new() { Description = "Bomba kimi", Address = "Qaradag",CustomerId = customerId });
             //await _orderWriteRepository.SaveAsync();
 
-            Order order = await _orderReadRepository.GetByIdAsync("5b1c9158-1ac9-4f81-a927-da85581e7bf3");
-            order.Address = "Qaradag Lokbatan";
-            await _orderWriteRepository.SaveAsync();
+            //Order order = await _orderReadRepository.GetByIdAsync("5b1c9158-1ac9-4f81-a927-da85581e7bf3");
+            //order.Address = "Qaradag Lokbatan";
+            //await _orderWriteRepository.SaveAsync();
+
+            return Ok("Selassm");
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> FindByIdAsync(string id, bool tracking = true)
-        {
-            Product product = await _readRepository.GetByIdAsync(id,true);
-            return Ok(product);
-        }
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> FindByIdAsync(string id, bool tracking = true)
+        //{
+        //    Product product = await _readRepository.GetByIdAsync(id,true);
+        //    return Ok(product);
+        //}
     }
 }

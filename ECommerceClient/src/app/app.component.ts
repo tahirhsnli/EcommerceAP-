@@ -5,17 +5,21 @@ import { Position } from './services/admin/alertify.service';
 import { timeout } from 'rxjs';
 import { time } from 'console';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = 'ECommerceClient';
-
-  constructor() {
-    
-    
+  ngOnInit(): void {
+   
   }
+
+    
 }
+$.get("https://localhost:7184/api/products")
+
 
