@@ -1,7 +1,10 @@
 ﻿using ETicaretAPI.Application.Repositories;
+using ETicaretAPI.Application.ViewModels.Products;
 using ETicaretAPI.Domain.Entities;
+using ETicaretAPI.Persistence.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace ETicaretAPI.API.Controllers
 {
@@ -9,25 +12,19 @@ namespace ETicaretAPI.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductReadRepository _readRepository;
-        private readonly IProductWriteRepository _writeRepository;
+        private readonly IProductReadRepository _productReadRepository;
+        private readonly IProductWriteRepository _productWriteRepository;
 
-        private readonly IOrderWriteRepository _orderWriteRepository;
-        private readonly IOrderReadRepository _orderReadRepository;
-
-        private readonly ICustomerWriteRepository _customerWriteRepository;
-
-        public ProductsController(IProductReadRepository readRepository,IProductWriteRepository writeRepository,IOrderWriteRepository orderWriteRepository,ICustomerWriteRepository customerWriteRepository,IOrderReadRepository orderReadRepository)
+        public ProductsController(IProductReadRepository productReadRepository,IProductWriteRepository productWriteRepository)
         {
-            _readRepository = readRepository;
-            _writeRepository = writeRepository;
-            _orderWriteRepository = orderWriteRepository;
-            _customerWriteRepository = customerWriteRepository;
-            _orderReadRepository = orderReadRepository;
+            _productReadRepository = productReadRepository;
+            _productWriteRepository = productWriteRepository;
         }
         [HttpGet]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> Get()
         {
+
+            return Ok(_productReadRepository.GetAll(false));
             //await _writeRepository.AddRangeAsync(new()
             //{
             //    new(){Id = Guid.NewGuid(),Name="Product1",Price=1000,Stock=20,Created = DateTime.UtcNow},
@@ -48,10 +45,8 @@ namespace ETicaretAPI.API.Controllers
             //Order order = await _orderReadRepository.GetByIdAsync("5b1c9158-1ac9-4f81-a927-da85581e7bf3");
             //order.Address = "Qaradag Lokbatan";
             //await _orderWriteRepository.SaveAsync();
-
-            return Ok("Selassm");
         }
-
+        
         //[HttpGet("{id}")]
         //public async Task<IActionResult> FindByIdAsync(string id, bool tracking = true)
         //{
