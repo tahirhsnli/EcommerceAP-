@@ -46,7 +46,24 @@ namespace ETicaretAPI.API.Controllers
             //order.Address = "Qaradag Lokbatan";
             //await _orderWriteRepository.SaveAsync();
         }
-        
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            return Ok(await _productReadRepository.GetByIdAsync(id,false));
+        }
+        [HttpPost]
+        public async Task<IActionResult> Post(VM_Create_Product model)
+        {
+            await _productWriteRepository.AddAsync(new()
+            {
+                Name = model.Name,
+                Stock = model.Stock,
+                Price = model.Price,
+            });
+            await _productWriteRepository.SaveAsync();
+            return StatusCode((int)HttpStatusCode.Created);   
+        }
+
         //[HttpGet("{id}")]
         //public async Task<IActionResult> FindByIdAsync(string id, bool tracking = true)
         //{
