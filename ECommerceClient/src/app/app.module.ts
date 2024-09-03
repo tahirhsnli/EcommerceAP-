@@ -34,7 +34,8 @@ import { BaseComponent } from './base/base.component';
     provideToastr({
       timeOut: 4000,
       positionClass:'toast-bottom-right'
-    })
+    }),
+    {provide:"baseUrl",useValue:"http://localhost:7184/api",multi:true}
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
