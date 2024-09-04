@@ -4,6 +4,7 @@ import { BaseComponent, SpinnerType } from '../../../base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientService } from '../../../services/common/http-client.service';
+import { Product } from '../../../contracts/product';
 
 @Component({
   selector: 'app-products',
@@ -41,8 +42,11 @@ export class ProductsComponent extends BaseComponent implements OnInit {
     //   controller:"products"
     // },"1aa69565-fa0a-4b64-9acd-337f26009bf7").subscribe();
 
-    this.httpClientService.get({
-      fullEndPoint:"https://jsonplaceholder.typicode.com/posts"
-    }).subscribe(data => console.log(data))
+    // this.httpClientService.get({
+    //   fullEndPoint:"https://jsonplaceholder.typicode.com/posts"
+    // }).subscribe(data => console.log(data))
+    this.httpClientService.get<Product[]>({
+      controller:"products"
+    }).subscribe(data => {console.log(data[2].name)})
   }
 }

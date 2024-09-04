@@ -172,7 +172,7 @@
               "RelativeDocumentMoniker": "Infrastructure\\ETicaretAPI.Persistence\\Contexts\\ETicaretDbContext.cs",
               "ToolTip": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Infrastructure\\ETicaretAPI.Persistence\\Contexts\\ETicaretDbContext.cs",
               "RelativeToolTip": "Infrastructure\\ETicaretAPI.Persistence\\Contexts\\ETicaretDbContext.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAYwCEAAAAYAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAA1wCEAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-24T13:38:49.604Z",
               "EditorCaption": ""
@@ -211,8 +211,7 @@
               "RelativeToolTip": "Presentation\\ETicaretAPI.API\\Controllers\\ProductsController.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAAADoAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:21:52.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T15:21:52.584Z"
             },
             {
               "$type": "Document",
