@@ -11,6 +11,7 @@ import { AdminModule } from './admin/admin.module';
 import { provideToastr, ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BaseComponent } from './base/base.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BaseComponent } from './base/base.component';
       positionClass:'toast-bottom-right'
     }),
     AdminModule,UiModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
@@ -35,7 +37,7 @@ import { BaseComponent } from './base/base.component';
       timeOut: 4000,
       positionClass:'toast-bottom-right'
     }),
-    {provide:"baseUrl",useValue:"http://localhost:7184/api",multi:true}
+    {provide:"baseUrl",useValue:"https://localhost:7184/api",multi:true}
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

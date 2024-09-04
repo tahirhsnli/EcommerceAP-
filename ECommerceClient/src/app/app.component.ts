@@ -20,6 +20,6 @@ export class AppComponent implements OnInit{
 
     
 }
-$.get("https://localhost:7184/api/products")
+// $.get("https://localhost:7184/api/products")
 
 
