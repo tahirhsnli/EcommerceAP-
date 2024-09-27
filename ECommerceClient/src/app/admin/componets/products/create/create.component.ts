@@ -4,6 +4,7 @@ import { Create_Product } from '../../../../contracts/create_product';
 import { BaseComponent, SpinnerType } from '../../../../base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AlertifyOptions, AlertifyService, MessageType, Position } from '../../../../services/admin/alertify.service';
+import { error } from 'console';
 
 
 @Component({
@@ -38,6 +39,13 @@ export class CreateComponent extends BaseComponent implements OnInit {
         dismissOthers : true,
         messageType : MessageType.Success,
         position : Position.TopRight
+      });
+    },errorMessage => {
+      this.aleritfy.message({
+        message:errorMessage,
+        dismissOthers:true,
+        messageType:MessageType.Error,
+        position:Position.TopRight
       })
     });
   }
