@@ -1,4 +1,5 @@
 ﻿using ETicaretAPI.Application.Repositories;
+using ETicaretAPI.Application.RequestParameters;
 using ETicaretAPI.Application.ViewModels.Products;
 using ETicaretAPI.Domain.Entities;
 using ETicaretAPI.Persistence.Repositories;
@@ -21,17 +22,26 @@ namespace ETicaretAPI.API.Controllers
             _productWriteRepository = productWriteRepository;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery]Pagination pagination)
         {
+            await Task.Delay(1500);
+            var totalCount = _productReadRepository.GetAll(false).Count();
 
-            return Ok(_productReadRepository.GetAll(false).Select( p => new {
+            var products = _productReadRepository.GetAll(false).Skip(pagination.Page * pagination.Size).Take(pagination.Size).Select(p => new
+            {
                 p.Id,
                 p.Name,
                 p.Stock,
                 p.Price,
                 p.CreatedDate,
                 p.UpdatedDate
-            }));
+            }).ToList();
+
+            return Ok(new
+            {
+                totalCount,
+                products
+            });
             //await _writeRepository.AddRangeAsync(new()
             //{
             //    new(){Id = Guid.NewGuid(),Name="Product1",Price=1000,Stock=20,Created = DateTime.UtcNow},

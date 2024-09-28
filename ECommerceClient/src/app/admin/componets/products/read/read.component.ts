@@ -22,15 +22,21 @@ export class ReadComponent extends BaseComponent implements OnInit {
   dataSource : MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator : MatPaginator;
 
-  async ngOnInit() {
-    this.showSpinner(SpinnerType.Ballatom);
-    const allProducts : List_Product[] = await this.productService.read(() => this.hideSpinner(SpinnerType.BallScaleMultiple),errorMessage => 
-    this.aleritfyService.message({
+  async getproducts(){
+    this.showSpinner(SpinnerType.BallScaleMultiple);
+    const allProducts : {totalCount:number;products:List_Product[]} = await this.productService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5,() => this.hideSpinner(SpinnerType.BallScaleMultiple),
+    errorMessage => this.aleritfyService.message({
       message:errorMessage,
       dismissOthers:true,
       position:Position.TopRight
-    }))
-    this.dataSource = new MatTableDataSource<List_Product>(allProducts);
-    this.dataSource.paginator  = this.paginator;
+    }));
+    this.dataSource = new MatTableDataSource<List_Product>(allProducts.products);
+    this.paginator.length = allProducts.totalCount;
+  }
+  async pageChanged(){
+    await this.getproducts();
+  }
+  async ngOnInit() {
+    await this.getproducts();
   }
 }
