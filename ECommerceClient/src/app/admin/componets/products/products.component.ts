@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { data, extend } from 'jquery';
 import { BaseComponent, SpinnerType } from '../../../base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientService } from '../../../services/common/http-client.service';
+import { Create_Product } from '../../../contracts/create_product';
+import { ReadComponent } from './read/read.component';
 
 @Component({
   selector: 'app-products',
@@ -47,5 +49,11 @@ export class ProductsComponent extends BaseComponent implements OnInit {
     // this.httpClientService.get<Product[]>({
     //   controller:"products"
     // }).subscribe(data => {console.log(data[2].name)})
+  }
+
+  @ViewChild(ReadComponent) readcomponent : ReadComponent;
+
+  createdProduct(createdproduct:Create_Product){
+    this.readcomponent.getproducts();
   }
 }

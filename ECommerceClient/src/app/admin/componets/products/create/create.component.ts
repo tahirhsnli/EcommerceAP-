@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProductsService } from '../../../../services/common/models/products.service';
 import { Create_Product } from '../../../../contracts/create_product';
 import { BaseComponent, SpinnerType } from '../../../../base/base.component';
@@ -22,6 +22,8 @@ export class CreateComponent extends BaseComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
+  @Output() createdProduct : EventEmitter<Create_Product> = new EventEmitter();
+
   create(Name : HTMLInputElement,Stock : HTMLInputElement,Price : HTMLInputElement){
 
     this.showSpinner(SpinnerType.BallScaleMultiple)
@@ -40,6 +42,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
         messageType : MessageType.Success,
         position : Position.TopRight
       });
+      this.createdProduct.emit(create_product);
     },errorMessage => {
       this.aleritfy.message({
         message:errorMessage,
