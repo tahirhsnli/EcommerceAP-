@@ -3,6 +3,9 @@ import { HttpClientService } from '../../services/common/http-client.service';
 import { ProductsService } from '../../services/common/models/products.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SpinnerType } from '../../base/base.component';
+import { DeleteDialogComponent, DeleteState } from '../../dialogs/delete-dialog/delete-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { after } from 'node:test';
 
 declare var $ : any;
 
@@ -15,7 +18,8 @@ export class DeleteDirective {
   constructor(
     private element : ElementRef,
     private _rendered : Renderer2,
-    private productService : ProductsService
+    private productService : ProductsService,
+    public dialog: MatDialog,
   ) 
   {
     const img = _rendered.createElement("img");
@@ -30,10 +34,28 @@ export class DeleteDirective {
   @Output() callback : EventEmitter<any> = new EventEmitter();
   @HostListener("click")
   async onClick(){
-    const td : HTMLTableCellElement = this.element.nativeElement;
-    await this.productService.delete(this.id)
-    $(td.parentElement).fadeOut(2000 , () => {
+    this.openDialog( async()=>{
+      const td : HTMLTableCellElement = this.element.nativeElement;
+      await this.productService.delete(this.id)
+    $(td.parentElement).animate({
+      opacity: 0,
+      left : "+50",
+      height: "toogle"
+    }, 800,()=>{
       this.callback.emit();
+    });
+    });
+  }
+  openDialog(afterClosed : any) : void{
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: DeleteState.Yes,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result === DeleteState.Yes) {
+        afterClosed();
+      }
     });
   }
 
