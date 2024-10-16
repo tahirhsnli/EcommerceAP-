@@ -43,7 +43,7 @@ export class DeleteDirective {
       height: "toogle"
     }, 800,()=>{
       this.callback.emit();
-    });
+      });
     });
   }
   openDialog(afterClosed : any) : void{

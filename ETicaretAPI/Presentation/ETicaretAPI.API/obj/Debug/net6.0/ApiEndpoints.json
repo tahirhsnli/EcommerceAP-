@@ -29,8 +29,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "ETicaretAPI.Application.ViewModels.Products.VM_Create_Product",
+        "Name": "createProductCommandRequest",
+        "Type": "ETicaretAPI.Application.Features.Commands.Products.CreateProduct.CreateProductCommandRequest",
         "IsRequired": true
       }
     ],
@@ -45,8 +45,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "ETicaretAPI.Application.ViewModels.Products.VM_Update_Product",
+        "Name": "putProductCommandRequest",
+        "Type": "ETicaretAPI.Application.Features.Commands.Products.PutProduct.PutProductCommandRequest",
         "IsRequired": true
       }
     ],
@@ -55,13 +55,13 @@
   {
     "ContainingType": "ETicaretAPI.API.Controllers.ProductsController",
     "Method": "Get",
-    "RelativePath": "api/Products/{id}",
+    "RelativePath": "api/Products/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Id",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -71,15 +71,31 @@
   {
     "ContainingType": "ETicaretAPI.API.Controllers.ProductsController",
     "Method": "Delete",
-    "RelativePath": "api/Products/{id}",
+    "RelativePath": "api/Products/{Id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Id",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ETicaretAPI.API.Controllers.ProductsController",
+    "Method": "Upload",
+    "RelativePath": "api/Products/Upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

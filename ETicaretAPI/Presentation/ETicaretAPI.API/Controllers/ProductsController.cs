@@ -1,8 +1,15 @@
-﻿using ETicaretAPI.Application.Repositories;
+﻿using ETicaretAPI.Application.Features.Commands.Products.PutProduct;
+using ETicaretAPI.Application.Features.Commands.Products.CreateProduct;
+using ETicaretAPI.Application.Features.Commands.Products.DeleteProduct;
+using ETicaretAPI.Application.Features.Commands.Products.PutProduct;
+using ETicaretAPI.Application.Features.Queries.Products.GetAllProduct;
+using ETicaretAPI.Application.Features.Queries.Products.GetByIdProduct;
+using ETicaretAPI.Application.Repositories;
 using ETicaretAPI.Application.RequestParameters;
 using ETicaretAPI.Application.ViewModels.Products;
 using ETicaretAPI.Domain.Entities;
 using ETicaretAPI.Persistence.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -15,33 +22,41 @@ namespace ETicaretAPI.API.Controllers
     {
         private readonly IProductReadRepository _productReadRepository;
         private readonly IProductWriteRepository _productWriteRepository;
-
-        public ProductsController(IProductReadRepository productReadRepository,IProductWriteRepository productWriteRepository)
+        private readonly IWebHostEnvironment _webHostEnvironment; // 
+        private readonly IMediator _mediator;
+        public ProductsController(IMediator mediator,IWebHostEnvironment webHostEnvironment)
         {
-            _productReadRepository = productReadRepository;
-            _productWriteRepository = productWriteRepository;
+            _mediator = mediator;
+            _webHostEnvironment = webHostEnvironment;
         }
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]Pagination pagination)
+        public async Task<IActionResult> Get([FromQuery] GetAllProductQueryRequest getAllProductQueryRequest)
         {
-            await Task.Delay(1000);
-            var totalCount = _productReadRepository.GetAll(false).Count();
 
-            var products = _productReadRepository.GetAll(false).Skip(pagination.Page * pagination.Size).Take(pagination.Size).Select(p => new
-            {
-                p.Id,
-                p.Name,
-                p.Stock,
-                p.Price,
-                p.CreatedDate,
-                p.UpdatedDate
-            }).ToList();
+            GetAllProductQueryResponse response = await _mediator.Send(getAllProductQueryRequest);
+            return Ok(response);
 
-            return Ok(new
-            {
-                totalCount,
-                products
-            });
+
+            //await Task.Delay(1000);
+            //var totalCount = _productReadRepository.GetAll(false).Count();
+
+            //var products = _productReadRepository.GetAll(false).Skip(pagination.Page * pagination.Size).Take(pagination.Size).Select(p => new
+            //{
+            //    p.Id,
+            //    p.Name,
+            //    p.Stock,
+            //    p.Price,
+            //    p.CreatedDate,
+            //    p.UpdatedDate
+            //}).ToList();
+
+            //return Ok(new
+            //{
+            //    totalCount,
+            //    products
+            //});
+
+
             //await _writeRepository.AddRangeAsync(new()
             //{
             //    new(){Id = Guid.NewGuid(),Name="Product1",Price=1000,Stock=20,Created = DateTime.UtcNow},
@@ -50,55 +65,51 @@ namespace ETicaretAPI.API.Controllers
             //});
             //await _writeRepository.SaveAsync();
 
+
             //Product product = await _readRepository.GetByIdAsync("43565798-4638-494e-8f58-02faede51aa4");
             //product.Price = 1221;
             //await _writeRepository.SaveAsync();
+
 
             //Guid customerId = Guid.NewGuid();
             //await _customerWriteRepository.AddAsync(new() { Id = customerId, Name = "Frank" });
             //await _orderWriteRepository.AddAsync(new() { Description = "Bomba kimi", Address = "Qaradag",CustomerId = customerId });
             //await _orderWriteRepository.SaveAsync();
 
+
             //Order order = await _orderReadRepository.GetByIdAsync("5b1c9158-1ac9-4f81-a927-da85581e7bf3");
             //order.Address = "Qaradag Lokbatan";
             //await _orderWriteRepository.SaveAsync();
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> Get([FromRoute]GetByIdProductQueryRequest getByIdProductQueryRequest)
         {
-            return Ok(await _productReadRepository.GetByIdAsync(id,false));
+            GetByIdProductQueryResponse response = await _mediator.Send(getByIdProductQueryRequest);
+            return Ok(response);
         }
         [HttpPost]
-        public async Task<IActionResult> Post(VM_Create_Product model)
+        public async Task<IActionResult> Post(CreateProductCommandRequest createProductCommandRequest)
         {
-            if (ModelState.IsValid)
-            {
-
-            }
-            await _productWriteRepository.AddAsync(new()
-            {
-                Name = model.Name,
-                Stock = model.Stock,
-                Price = model.Price,
-            });
-            await _productWriteRepository.SaveAsync();
+            CreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);
             return StatusCode((int)HttpStatusCode.Created);   
+            return Ok(response);
         }
         [HttpPut]
-        public async Task<IActionResult> Put(VM_Update_Product model)
+        public async Task<IActionResult> Put([FromBody] PutProductCommandRequest putProductCommandRequest)
         {
-            Product product = await _productReadRepository.GetByIdAsync(model.Id);
-            product.Name = model.Name;
-            product.Stock = model.Stock;
-            product.Price = model.Price;
-            await _productWriteRepository.SaveAsync();
-            return Ok();
+            PutProductCommandResponse response = await _mediator.Send(putProductCommandRequest);
+            return Ok(response);
         }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute]DeleteProductCommandRequest deleteProductCommandRequest)
         {
-            await _productWriteRepository.RemoveAsync(id);
-            await _productWriteRepository.SaveAsync();
+            DeleteProductCommandResponse response = await _mediator.Send(deleteProductCommandRequest);
+            return Ok(deleteProductCommandRequest);
+        }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath,"assets");
             return Ok();
         }
         //[HttpGet("{id}")]
