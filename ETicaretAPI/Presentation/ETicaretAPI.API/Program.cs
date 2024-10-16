@@ -1,3 +1,4 @@
+using ETicaretAPI.Application;
 using ETicaretAPI.Application.Validators.Products;
 using ETicaretAPI.Infrastructure.Filters;
 using ETicaretAPI.Persistence;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddPersistenceServices();
+builder.Services.AddApplicationServices();
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
     policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()
 ));
@@ -27,6 +29,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseStaticFiles();
 app.UseCors();
 app.UseHttpsRedirection();
 

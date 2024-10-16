@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "R4L/muU4Ajh8ch8nWIZlXmzUKuftm5IhIMy8LfkGGdqs1V2UojQAKG0Fxmd6fpghkVbWw3tKkf1+RcKyp5gEpQ==",
+  "dgSpecHash": "5XFmtGIiZOBr7l+XzauYxUuuxDTXSLLGqlVW49TYg3cJbd7XGd51VXPxSFfJx+WzMOcESLOXGnVmcZLUcvp85A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Core\\ETicaretAPI.Application\\ETicaretAPI.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tahir\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
     "C:\\Users\\Tahir\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Tahir\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.2\\fluentvalidation.dependencyinjectionextensions.11.9.2.nupkg.sha512",
+    "C:\\Users\\Tahir\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\Tahir\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Tahir\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\Tahir\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.32\\microsoft.entityframeworkcore.6.0.32.nupkg.sha512",
     "C:\\Users\\Tahir\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.32\\microsoft.entityframeworkcore.abstractions.6.0.32.nupkg.sha512",
     "C:\\Users\\Tahir\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.32\\microsoft.entityframeworkcore.analyzers.6.0.32.nupkg.sha512",
