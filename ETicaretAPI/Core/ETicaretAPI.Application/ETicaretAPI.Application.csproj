@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Commands\ProductImageFile\RemoveImageFile\" />
     <Folder Include="Features\Handlers\" />
   </ItemGroup>
 

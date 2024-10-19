@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1Qo4xZ0Nh89Oae20tYjC8Xi9VdzqKY+2lgaFsm80hSg=",
+  "Hash": "FQ376XqWprckfDiXttiQhD3ZW2gFYuI3r1IiZb2RpMo=",
   "Source": "ETicaretAPI.API",
   "BasePath": "_content/ETicaretAPI.API",
   "Mode": "Default",
@@ -15,5 +15,82 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\resource\\product-image\\Referat.jpg",
+      "SourceId": "ETicaretAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\",
+      "BasePath": "_content/ETicaretAPI.API",
+      "RelativePath": "resource/product-image/Referat.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resource\\product-image\\Referat.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\resource\\product-image\\Referat-2.jpg",
+      "SourceId": "ETicaretAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\",
+      "BasePath": "_content/ETicaretAPI.API",
+      "RelativePath": "resource/product-image/Referat-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resource\\product-image\\Referat-2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\resource\\product-image\\Screenshot (12)-2.png",
+      "SourceId": "ETicaretAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\",
+      "BasePath": "_content/ETicaretAPI.API",
+      "RelativePath": "resource/product-image/Screenshot (12)-2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resource\\product-image\\Screenshot (12)-2.png"
+    },
+    {
+      "Identity": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\resource\\product-image\\Screenshot (14)-2.png",
+      "SourceId": "ETicaretAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Tahir\\Desktop\\ETicaret\\ETicaretAPI\\Presentation\\ETicaretAPI.API\\wwwroot\\",
+      "BasePath": "_content/ETicaretAPI.API",
+      "RelativePath": "resource/product-image/Screenshot (14)-2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resource\\product-image\\Screenshot (14)-2.png"
+    }
+  ]
 }

@@ -13,6 +13,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using ETicaretAPI.Application.Services;
 
 namespace ETicaretAPI.API.Controllers
 {
@@ -24,11 +25,15 @@ namespace ETicaretAPI.API.Controllers
         private readonly IProductWriteRepository _productWriteRepository;
         private readonly IWebHostEnvironment _webHostEnvironment; // 
         private readonly IMediator _mediator;
-        public ProductsController(IMediator mediator,IWebHostEnvironment webHostEnvironment)
+        private readonly IFileService _fileService;
+        public ProductsController(IMediator mediator,IWebHostEnvironment webHostEnvironment, IFileService fileService)
         {
             _mediator = mediator;
             _webHostEnvironment = webHostEnvironment;
+            _fileService = fileService;
         }
+
+
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] GetAllProductQueryRequest getAllProductQueryRequest)
         {
@@ -107,9 +112,9 @@ namespace ETicaretAPI.API.Controllers
             return Ok(deleteProductCommandRequest);
         }
         [HttpPost("[action]")]
-        public async Task<IActionResult> Upload(IFormFile file)
+        public async Task<IActionResult> Upload(IFormFileCollection formFiles)
         {
-            string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath,"assets");
+            await _fileService.UploadAsync("resource\\product-image",formFiles);
             return Ok();
         }
         //[HttpGet("{id}")]

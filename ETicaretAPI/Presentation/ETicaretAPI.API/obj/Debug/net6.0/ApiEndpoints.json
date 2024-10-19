@@ -93,8 +93,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "file",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "formFiles",
+        "Type": "Microsoft.AspNetCore.Http.IFormFileCollection",
         "IsRequired": false
       }
     ],
